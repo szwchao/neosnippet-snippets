@@ -79,3 +79,65 @@ options head
     \`\`\`${1:#:language}
     ${2:#:code }
     \`\`\`
+
+snippet init
+abbr `init`
+options word
+    title: `expand('%:r')`
+    date: `strftime("20%y-%m-%d %H:%M:%S")`
+    tags: ${1:}
+    categories: ${2:}
+    toc: true 
+    ---
+    ${0}
+
+snippet more
+abbr <!-- more -->
+options word
+    <!-- more -->
+    
+snippet image
+abbr ![alt][image_url]
+options word
+    ![${1:#:alt}](${2:#:url})${3}
+
+snippet table
+abbr |table|
+options word
+    |  |  |  |
+    |--|--|--|
+    |  |  |  |
+    |  |  |  |
+
+snippet uml
+abbr plantuml
+options word
+    {% plantuml %}
+        ${1:#:code}
+    {% endplantuml %}
+
+snippet textcolor
+abbr textcolor, style: muted, primary, success, info, warning, danger
+options word
+    {% textcolor ${1:#:style} %}
+        ${2:#:text}
+    {% endtextcolor %}
+
+snippet button
+alias   btn
+abbr button, style: muted, primary, success, info, warning, danger
+options word
+    {% btn ${1:#:url} ${2:#:text} ${3:#:style} %}
+
+snippet label
+abbr label, style: muted, primary, success, info, warning, danger
+options word
+    {% label ${1:#:text} ${2:#:style} %}
+
+snippet alert
+abbr alert, style: muted, primary, success, info, warning, danger
+options word
+    {% alert ${1:#:style} %}
+        ${2:#:text}
+    {% endalert %}
+
